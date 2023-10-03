@@ -63,7 +63,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="main-container">
       <form
         className="form-container"
         onSubmit={HandleUsernameSubmit}
@@ -73,9 +73,15 @@ function App() {
           type="text"
           name="usernameInput"
           placeholder="e.g. facebook"
+          className="input-field"
           onChange={(e) => setUsername(e.target.value)}
         />
-        <button type="submit">GO!</button>
+        <button
+          type="submit"
+          className="submit-button"
+        >
+          GO!
+        </button>
       </form>
       {/* <Repos
         user={user}
@@ -83,12 +89,12 @@ function App() {
       /> */}
       {repos.length > 0 ? (
         <div>
-          <div>
+          <div className="head-container">
             <img
               src={user.avatar_url}
               alt="User's profile image."
-              width={"300px"}
-              height={"300px"}
+              width={"100px"}
+              height={"100px"}
             />
             <h1>{user.name}</h1>
           </div>
@@ -102,13 +108,18 @@ function App() {
             <h3>
               <b>REPOSITORIES:</b>
             </h3>
-            <ul>
+            <ul className="repo-list">
               {repos.map((repo) => {
-                return <li>{repo.name}</li>;
+                return <li className="list-item">{repo.name}</li>;
               })}
             </ul>
           </div>
-          <button onClick={handleReset}>RESET!</button>
+          <button
+            onClick={handleReset}
+            className="reset-button"
+          >
+            RESET!
+          </button>
         </div>
       ) : (
         ""
